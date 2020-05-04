@@ -14,6 +14,7 @@ public:
 	void ResetData(std::vector<int>& i);
 
 	void DoSelectionSort();
+	void DoBubbleSort();
 
 private:
 	std::vector<int>& m_originData;

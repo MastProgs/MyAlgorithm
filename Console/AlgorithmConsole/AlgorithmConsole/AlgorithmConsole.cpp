@@ -42,9 +42,19 @@ int main()
 		//PrintVector(v);
 		{
 			// 시간복잡도는 O(N^2) - 왜냐하면 각 원소별로 순환하면서 찾기 때문에, N*(N+1)/2 번 순환을 함
-			std::cout << "Selection Sort : ";
+			std::cout << "\nSelection Sort : ";
 			ScopedTimer t{ false };
 			sorter.DoSelectionSort();
+		}
+		//PrintVector(v);
+
+		RefreshVector(v);
+		//PrintVector(v);
+		{
+			// 시간복잡도는 O(N^2) - 버블정렬은 선택정렬에 비해 양쪽 읽고 쓰기를 더 해서, 실제론 선택 정렬보다 더 느림
+			std::cout << "\nBubble Sort : ";
+			ScopedTimer t{ false };
+			sorter.DoBubbleSort();
 		}
 		//PrintVector(v);
 	}

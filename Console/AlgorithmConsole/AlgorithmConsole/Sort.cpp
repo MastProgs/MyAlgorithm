@@ -41,3 +41,20 @@ void Sorter::DoSelectionSort()
 		min = INT_MAX;
 	}
 }
+
+void Sorter::DoBubbleSort()
+{
+	int temp;
+	for (int i = 0; i < m_originData.size(); ++i)
+	{
+		for (int j = 0; j < (m_originData.size() - 1 - i); ++j)
+		{
+			if (m_originData[j] > m_originData[j + 1])
+			{
+				temp = m_originData[j];
+				m_originData[j] = m_originData[j + 1];
+				m_originData[j + 1] = temp;
+			}
+		}
+	}
+}
