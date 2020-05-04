@@ -9,15 +9,13 @@ public:
 	~ScopedTimer();
 
 #pragma region SingleTimer
-
-public:
+private:
 	bool SetStart();
 	bool SetFinish();
 	void PrintTimeCount();
 
 	void Refresh();
 
-private:
 	int GetTimeCount();
 	void PrintStartCountMsg();
 
