@@ -53,7 +53,7 @@ int ScopedTimer::GetTimeCount()
 
 void ScopedTimer::PrintStartCountMsg()
 {
-	printf("<--- Timer Start! --->\n\n");
+	printf("\n<--- Timer Start! --->\n\n");
 }
 
 void ScopedTimer::PrintTimeCount()

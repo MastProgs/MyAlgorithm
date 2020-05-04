@@ -16,6 +16,9 @@
     <Filter Include="소스 파일\Timer">
       <UniqueIdentifier>{88f6b775-afea-46b1-b7d4-6733041eb517}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Sort">
+      <UniqueIdentifier>{61b5c482-04a9-4127-b3a6-e6c48e710592}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlgorithmConsole.cpp">
@@ -24,10 +27,16 @@
     <ClCompile Include="Timer.cpp">
       <Filter>소스 파일\Timer</Filter>
     </ClCompile>
+    <ClCompile Include="Sort.cpp">
+      <Filter>소스 파일\Sort</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
       <Filter>소스 파일\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Sort.h">
+      <Filter>소스 파일\Sort</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
