@@ -23,12 +23,13 @@ int main()
 			std::mt19937 g(rd());
 
 			std::shuffle(v.begin(), v.end(), g);
-			// std::random_shuffle(v.begin(), v.end());	// 완전 무작위가 아님
+			// std::random_shuffle(v.begin(), v.end());	// 완전 무작위가 아님 + C++17 부터는 삭제됨
 		};
 
 		auto PrintVector = [](std::vector<int>& v)
 		{
 			std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
+			std::cout << "\n";
 		};
 
 		std::vector<int> v;
@@ -55,6 +56,16 @@ int main()
 			std::cout << "\nBubble Sort : ";
 			ScopedTimer t{ false };
 			sorter.DoBubbleSort();
+		}
+		//PrintVector(v);
+
+		RefreshVector(v);
+		//PrintVector(v);
+		{
+			// 시간복잡도는 O(N^2) - 정렬이 거의 되어 있는 경우 N-1 번을 모두 순회하지 않기 때문에, 선택 및 버블보단 성능이 올라가게 된다
+			std::cout << "\Insertion Sort : ";
+			ScopedTimer t{ false };
+			sorter.DoInsertionSort();
 		}
 		//PrintVector(v);
 	}

@@ -58,3 +58,25 @@ void Sorter::DoBubbleSort()
 		}
 	}
 }
+
+void Sorter::DoInsertionSort()
+{
+	int temp;
+	for (auto iter = m_originData.begin(); iter != m_originData.end(); ++iter)
+	{
+		auto tempIter = m_originData.rbegin();
+		for (auto rIter = std::make_reverse_iterator(iter); rIter != m_originData.rend(); ++rIter)
+		{
+			if (*(rIter - 1) < *rIter)
+			{
+				temp = *rIter;
+				*rIter = *(rIter - 1);
+				*(rIter - 1) = temp;
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+}

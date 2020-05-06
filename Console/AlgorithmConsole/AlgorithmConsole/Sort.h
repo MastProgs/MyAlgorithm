@@ -15,6 +15,7 @@ public:
 
 	void DoSelectionSort();
 	void DoBubbleSort();
+	void DoInsertionSort();
 
 private:
 	std::vector<int>& m_originData;
