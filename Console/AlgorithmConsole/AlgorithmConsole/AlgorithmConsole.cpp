@@ -7,7 +7,6 @@
 
 #include "Timer.h"
 #include "Sort.h"
-
 int main()
 {
 	{
@@ -33,7 +32,7 @@ int main()
 		};
 
 		std::vector<int> v;
-		for (size_t i = 0; i < 5000; i++)
+		for (size_t i = 0; i < 10; i++)
 		{
 			v.emplace_back(i + 1);
 		}
@@ -68,6 +67,37 @@ int main()
 			sorter.DoInsertionSort();
 		}
 		//PrintVector(v);
+
+		RefreshVector(v);
+		//PrintVector(v);
+		{
+			// 시간복잡도는 O(N * log N) - 입력하는 데이터가 정렬되어 최악의 경우가 발생 할 때 O(N^2)
+			std::cout << "\Quick Sort : ";
+			ScopedTimer t{ false };
+			sorter.DoQuickSort();
+		}
+		//PrintVector(v);
+
+		RefreshVector(v);
+		//PrintVector(v);
+		{
+			std::cout << "\Quick Sort : ";
+			ScopedTimer t{ false };
+			sorter.DoReversQuickSort();
+		}
+		//PrintVector(v);
+
+#pragma region STLsort
+		RefreshVector(v);
+		//PrintVector(v);
+		{
+			std::cout << "\STL Sort : ";
+			ScopedTimer t{ false };
+			std::sort(v.begin(), v.end(), [](int lhs, int rhs) { return lhs > rhs; });
+		}
+		//PrintVector(v);
+#pragma endregion STLsort
 	}
 #pragma endregion Sort
+
 }
