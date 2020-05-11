@@ -91,6 +91,11 @@ void Sorter::DoReversQuickSort()
 	ReverseQuickSort(0, m_originData.size() - 1);
 }
 
+void Sorter::DoMergeSort()
+{
+	MergeSort(0, m_originData.size() - 1);
+}
+
 void Sorter::QuickSort(int start, int end)
 {
 	// start, end 는 index 구간 범위
@@ -177,4 +182,70 @@ void Sorter::ReverseQuickSort(int start, int end)
 
 	ReverseQuickSort(start, j - 1);
 	ReverseQuickSort(j + 1, end);
+}
+
+void Sorter::MergeSort_Impl(int start, int middle, int end)
+{
+	// 임시 옮겨 쓰기용 공간
+	std::vector<int> tempArr;
+	tempArr.reserve(m_originData.size());
+	for (auto d : m_originData)
+	{
+		tempArr.emplace_back(0);
+	}
+
+	int i = start;		// 절반 나눈 후 좌측 index
+	int j = middle + 1;	// 절반 나눈 후 우측 index
+	int k = start;	// 정렬한 새 배열에 담을 때 쓰는 index
+
+	while (i <= middle && j <= end)
+	{
+		// i 칸과 j 칸 비교해서 작은 녀석을 정렬하는 배열에 복사함
+		if (m_originData[i] <= m_originData[j])
+		{
+			tempArr[k] = m_originData[i];
+			++i;
+		}
+		else
+		{
+			tempArr[k] = m_originData[j];
+			++j;
+		}
+		++k;
+	}
+
+	// i 나 j 에서 범위를 벗어났다면, 남은 나머지는 그냥 순서대로 복사해서 넣으면 됨
+	if (i > middle)
+	{
+		for (int t = j; t <= end; ++t)
+		{
+			tempArr[k] = m_originData[t];
+			++k;
+		}
+	}
+	else
+	{
+		for (int t = i; t <= middle; ++t)
+		{
+			tempArr[k] = m_originData[t];
+			++k;
+		}
+	}
+
+	// 정렬한 데이터를 원본 배열에 삽입
+	for (int t = start; t <= end; ++t)
+	{
+		m_originData[t] = tempArr[t];
+	}
+}
+
+void Sorter::MergeSort(int start, int end)
+{
+	if (start < end)	// 이거 이외의 경우라면 원소 갯 수가 1개인 경우임
+	{
+		int middle = (start + end) / 2;
+		MergeSort(start, middle);
+		MergeSort(middle + 1, end);
+		MergeSort_Impl(start, middle, end);
+	}
 }

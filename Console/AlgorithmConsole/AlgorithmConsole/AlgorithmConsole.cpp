@@ -62,7 +62,7 @@ int main()
 		//PrintVector(v);
 		{
 			// 시간복잡도는 O(N^2) - 정렬이 거의 되어 있는 경우 N-1 번을 모두 순회하지 않기 때문에, 선택 및 버블보단 성능이 올라가게 된다
-			std::cout << "\Insertion Sort : ";
+			std::cout << "\nInsertion Sort : ";
 			ScopedTimer t{ false };
 			sorter.DoInsertionSort();
 		}
@@ -72,7 +72,7 @@ int main()
 		//PrintVector(v);
 		{
 			// 시간복잡도는 O(N * log N) - 입력하는 데이터가 정렬되어 최악의 경우가 발생 할 때 O(N^2)
-			std::cout << "\Quick Sort : ";
+			std::cout << "\nQuick Sort : ";
 			ScopedTimer t{ false };
 			sorter.DoQuickSort();
 		}
@@ -81,11 +81,21 @@ int main()
 		RefreshVector(v);
 		//PrintVector(v);
 		{
-			std::cout << "\Quick Sort : ";
+			std::cout << "\nReverse Quick Sort : ";
 			ScopedTimer t{ false };
 			sorter.DoReversQuickSort();
 		}
 		//PrintVector(v);
+
+		RefreshVector(v);
+		PrintVector(v);
+		{
+			// 시간복잡도는 O(N * log N) - 퀵소트 보다는 느리지만, 항상 (n * log n) 을 보장한다는게 큰 장점
+			std::cout << "\nMerge Sort : ";
+			ScopedTimer t{ false };
+			sorter.DoMergeSort();
+		}
+		PrintVector(v);
 
 #pragma region STLsort
 		RefreshVector(v);
@@ -93,7 +103,7 @@ int main()
 		{
 			std::cout << "\STL Sort : ";
 			ScopedTimer t{ false };
-			std::sort(v.begin(), v.end(), [](int lhs, int rhs) { return lhs > rhs; });
+			std::sort(v.begin(), v.end()/*, [](int lhs, int rhs) { return lhs > rhs; }*/);
 		}
 		//PrintVector(v);
 #pragma endregion STLsort
