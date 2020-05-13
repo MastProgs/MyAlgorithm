@@ -93,7 +93,73 @@ void Sorter::DoReversQuickSort()
 
 void Sorter::DoMergeSort()
 {
-	MergeSort(0, m_originData.size() - 1);
+	// 임시 옮겨 쓰기용 공간
+	std::vector<int> tempArr;
+	tempArr.reserve(m_originData.size());
+	for (auto d : m_originData)
+	{
+		tempArr.emplace_back(0);
+	}
+
+	MergeSort(0, m_originData.size() - 1, tempArr);
+}
+
+void Sorter::DoHeapSort()
+{
+	auto makeHeap = [](int maxIndex, std::vector<int>& v) 
+	{
+		// 이진 최대 힙 구조가 되게끔 배열을 정리
+		for (int i = 1; i < maxIndex; i++)
+		{
+			int currIdx = i;
+			do
+			{
+				int parentIdx = (currIdx - 1) / 2;
+				if (v[parentIdx] < v[currIdx])
+				{
+					int temp = v[parentIdx];
+					v[parentIdx] = v[currIdx];
+					v[currIdx] = temp;
+				}
+				currIdx = parentIdx;
+			} while (currIdx != 0);
+		}
+	};
+
+	makeHeap(m_originData.size(), m_originData);
+
+	// 맨 최상단 값을 후면으로 이동하여, index 값을 줄여주면서 힙을 구성해 나감
+	for (int i = m_originData.size() - 1; i >= 0; --i)
+	{
+		// 맨 최상단 값을, 마지막 끝 값과 교체
+		int temp = m_originData[0];
+		m_originData[0] = m_originData[i];
+		m_originData[i] = temp;
+
+		//makeHeap(i, m_originData);
+
+		// 위에서 부터 다시 힙 구성을 해나가기
+		int parent = 0;
+		int curr = 1;
+		do
+		{
+			curr = 2 * parent + 1;
+			// 자식 중에 더 큰 값을 찾기
+			if (curr < i - 1 && m_originData[curr] < m_originData[curr + 1])
+			{
+				++curr;
+			}
+
+			// 부모보다 자식이 크다면 교환
+			if (curr < i && m_originData[parent] < m_originData[curr])
+			{
+				temp = m_originData[parent];
+				m_originData[parent] = m_originData[curr];
+				m_originData[curr] = temp;
+			}
+			parent = curr;
+		} while (curr < i);
+	}
 }
 
 void Sorter::QuickSort(int start, int end)
@@ -184,16 +250,8 @@ void Sorter::ReverseQuickSort(int start, int end)
 	ReverseQuickSort(j + 1, end);
 }
 
-void Sorter::MergeSort_Impl(int start, int middle, int end)
+void Sorter::MergeSort_Impl(int start, int middle, int end, std::vector<int>& tempArr)
 {
-	// 임시 옮겨 쓰기용 공간
-	std::vector<int> tempArr;
-	tempArr.reserve(m_originData.size());
-	for (auto d : m_originData)
-	{
-		tempArr.emplace_back(0);
-	}
-
 	int i = start;		// 절반 나눈 후 좌측 index
 	int j = middle + 1;	// 절반 나눈 후 우측 index
 	int k = start;	// 정렬한 새 배열에 담을 때 쓰는 index
@@ -239,13 +297,13 @@ void Sorter::MergeSort_Impl(int start, int middle, int end)
 	}
 }
 
-void Sorter::MergeSort(int start, int end)
+void Sorter::MergeSort(int start, int end, std::vector<int>& tempArr)
 {
 	if (start < end)	// 이거 이외의 경우라면 원소 갯 수가 1개인 경우임
 	{
 		int middle = (start + end) / 2;
-		MergeSort(start, middle);
-		MergeSort(middle + 1, end);
-		MergeSort_Impl(start, middle, end);
+		MergeSort(start, middle, tempArr);
+		MergeSort(middle + 1, end, tempArr);
+		MergeSort_Impl(start, middle, end, tempArr);
 	}
 }

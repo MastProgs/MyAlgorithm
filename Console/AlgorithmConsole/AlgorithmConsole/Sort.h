@@ -22,12 +22,14 @@ public:
 
 	void DoMergeSort();
 
+	void DoHeapSort();
+
 private:
 	void QuickSort(int start, int end);
 	void ReverseQuickSort(int start, int end);
 
-	void MergeSort_Impl(int start, int middle, int end);
-	void MergeSort(int start, int end);
+	void MergeSort_Impl(int start, int middle, int end, std::vector<int>& tempArr);
+	void MergeSort(int start, int end, std::vector<int>& tempArr);
 
 private:
 	std::vector<int>& m_originData;

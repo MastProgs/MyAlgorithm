@@ -88,14 +88,24 @@ int main()
 		//PrintVector(v);
 
 		RefreshVector(v);
-		PrintVector(v);
+		//PrintVector(v);
 		{
 			// 시간복잡도는 O(N * log N) - 퀵소트 보다는 느리지만, 항상 (n * log n) 을 보장한다는게 큰 장점
 			std::cout << "\nMerge Sort : ";
 			ScopedTimer t{ false };
 			sorter.DoMergeSort();
 		}
-		PrintVector(v);
+		//PrintVector(v);
+
+		RefreshVector(v);
+		//PrintVector(v);
+		{
+			// 시간복잡도는 O(N * log N) - 퀵소트 보다는 평균적으로 살짝 느리지만, 항상 (n * log n) 을 보장 + 병합정렬보다 공간을 절약
+			std::cout << "\nHeap Sort : ";
+			ScopedTimer t{ false };
+			sorter.DoHeapSort();
+		}
+		//PrintVector(v);
 
 #pragma region STLsort
 		RefreshVector(v);
