@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <iterator>
+#include <queue>
 
 Sorter::Sorter(std::vector<int>& i)
 	: m_originData{ i }
@@ -159,6 +160,45 @@ void Sorter::DoHeapSort()
 			}
 			parent = curr;
 		} while (curr < i);
+	}
+}
+
+void Sorter::DoRadixSort()
+{
+	// 임시 정렬할 큐 공간 확보
+	std::vector<std::queue<int>> queueArr;
+	queueArr.reserve(10);
+	for (size_t i = 0; i < 10; i++)
+	{
+		queueArr.emplace_back(std::queue<int>{});
+	}
+
+	int radix{ 1 };
+
+	while (true)
+	{
+		for (auto d : m_originData)
+		{
+			queueArr[(d / radix) % 10].push(d);
+		}
+
+		if (m_originData.size() == queueArr[0].size())
+		{
+			return;
+		}
+
+		// queue 안의 내용물 재배열 후 정리
+		int i{ 0 };
+		for (auto& queue : queueArr)
+		{
+			while (queue.size() != 0)
+			{
+				m_originData[i] = queue.front();
+				queue.pop();
+				++i;
+			}
+		}
+		radix *= 10;
 	}
 }
 

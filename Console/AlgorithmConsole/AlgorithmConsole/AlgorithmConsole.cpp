@@ -107,6 +107,16 @@ int main()
 		}
 		//PrintVector(v);
 
+		RefreshVector(v);
+		//PrintVector(v);
+		{
+			// 시간복잡도는 O(K * N) - 기수 정렬은 공간을 많이 먹지만, 자리수 만큼 N번 계산하니까 상당히 빠르다 (부동소수점 같은거는 이걸로 하기 어려움)
+			std::cout << "\nRadix Sort : ";
+			ScopedTimer t{ false };
+			sorter.DoRadixSort();
+		}
+		//PrintVector(v);
+
 #pragma region STLsort
 		RefreshVector(v);
 		//PrintVector(v);

@@ -21,8 +21,8 @@ public:
 	void DoReversQuickSort();
 
 	void DoMergeSort();
-
 	void DoHeapSort();
+	void DoRadixSort();
 
 private:
 	void QuickSort(int start, int end);
