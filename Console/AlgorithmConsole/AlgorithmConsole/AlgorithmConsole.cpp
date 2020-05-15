@@ -122,6 +122,7 @@ int main()
 		RefreshVector(v);
 		//PrintVector(v);
 		{
+			// Intro Sort - 퀵정렬 + 힙정렬 + 삽입정렬이 되어 있다.
 			std::cout << "\STL Sort : ";
 			ScopedTimer t{ false };
 			std::sort(v.begin(), v.end()/*, [](int lhs, int rhs) { return lhs > rhs; }*/);
