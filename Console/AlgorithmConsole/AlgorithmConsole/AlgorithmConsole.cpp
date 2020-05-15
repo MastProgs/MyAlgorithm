@@ -110,7 +110,8 @@ int main()
 		RefreshVector(v);
 		//PrintVector(v);
 		{
-			// 시간복잡도는 O(K * N) - 기수 정렬은 공간을 많이 먹지만, 자리수 만큼 N번 계산하니까 상당히 빠르다 (부동소수점 같은거는 이걸로 하기 어려움)
+			// 시간복잡도는 O(K * N) - 기수 정렬은 공간을 많이 먹지만, 자리수 만큼 N번 계산하니까 상당히 빠르다
+			/// 다만, 문자열 같이 자리수가 무제한으로 늘어나는 경우나, 부동소수점 같은거는 이걸로 하면 더 느려지거나 직접 적용에 있어서 어려움
 			std::cout << "\nRadix Sort : ";
 			ScopedTimer t{ false };
 			sorter.DoRadixSort();
