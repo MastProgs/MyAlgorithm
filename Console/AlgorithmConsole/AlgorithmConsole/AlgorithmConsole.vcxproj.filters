@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\Sort">
       <UniqueIdentifier>{61b5c482-04a9-4127-b3a6-e6c48e710592}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Kruskal">
+      <UniqueIdentifier>{35f2f946-5bb2-47bf-925b-a75c970110c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlgorithmConsole.cpp">
@@ -30,6 +33,9 @@
     <ClCompile Include="Sort.cpp">
       <Filter>소스 파일\Sort</Filter>
     </ClCompile>
+    <ClCompile Include="Kruskal.cpp">
+      <Filter>소스 파일\Kruskal</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
@@ -37,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="Sort.h">
       <Filter>소스 파일\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="Kruskal.h">
+      <Filter>소스 파일\Kruskal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

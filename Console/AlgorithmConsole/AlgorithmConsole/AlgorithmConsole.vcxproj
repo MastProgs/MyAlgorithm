@@ -152,10 +152,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AlgorithmConsole.cpp" />
+    <ClCompile Include="Kruskal.cpp" />
     <ClCompile Include="Sort.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Kruskal.h" />
     <ClInclude Include="Sort.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
