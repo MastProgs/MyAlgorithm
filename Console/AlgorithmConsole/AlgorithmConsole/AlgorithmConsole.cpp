@@ -9,6 +9,7 @@
 #include "Sort.h"
 
 #include "Kruskal.h"
+#include "Fibonacci.h"
 int main()
 {
 
@@ -138,7 +139,6 @@ int main()
 #pragma endregion Sort
 
 
-#endif // 0
 
 #pragma region KruskalAlgorithm
 	{
@@ -149,4 +149,12 @@ int main()
 		Kruskal k;
 	}
 #pragma endregion KruskalAlgorithm
+
+#endif // 0
+#pragma region DynamicProgramming
+	{
+		Fibonacci f{ 50 };
+		f.Print();
+	}
+#pragma endregion DynamicProgramming
 }

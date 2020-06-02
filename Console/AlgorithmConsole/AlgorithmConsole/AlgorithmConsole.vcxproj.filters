@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\Kruskal">
       <UniqueIdentifier>{35f2f946-5bb2-47bf-925b-a75c970110c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\DynamicProgramming">
+      <UniqueIdentifier>{70714ea5-6819-493f-b472-7fd554b0ce4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlgorithmConsole.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="Kruskal.cpp">
       <Filter>소스 파일\Kruskal</Filter>
     </ClCompile>
+    <ClCompile Include="Fibonacci.cpp">
+      <Filter>소스 파일\DynamicProgramming</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
@@ -46,6 +52,9 @@
     </ClInclude>
     <ClInclude Include="Kruskal.h">
       <Filter>소스 파일\Kruskal</Filter>
+    </ClInclude>
+    <ClInclude Include="Fibonacci.h">
+      <Filter>소스 파일\DynamicProgramming</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
