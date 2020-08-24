@@ -52,5 +52,12 @@ namespace TestWPF
         {
             logMonitor.Text = "Option Checked";
         }
+
+        private void newWindow_Click(object sender, RoutedEventArgs e)
+        {
+            AdditionalWindow newWindow = new AdditionalWindow();
+            newWindow.Show();
+            logMonitor.Text = "AdditionalWindow Activated";
+        }
     }
 }
