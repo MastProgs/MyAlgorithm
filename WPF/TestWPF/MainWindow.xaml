@@ -11,7 +11,7 @@
             <TabItem Header="Test Log">
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="okBtn" Content="Ok" Margin="10,38,10,0" Height="23" VerticalAlignment="Top" Click="okBtn_Click" Cursor="Hand"/>
-                    <TextBox x:Name="logMonitor" Height="23" Margin="10,10,10,0" TextWrapping="Wrap" Text="{Binding LogMonitor}" VerticalAlignment="Top" IsEnabled="False"/>
+                    <TextBox x:Name="logMonitor" Height="23" Margin="10,10,10,0" TextWrapping="Wrap" Text="{Binding LogMonitor}" VerticalAlignment="Top" TextAlignment="Center" IsReadOnly="True"/>
                     <Button x:Name="cancelBtn" Content="Cancel" Margin="10,66,10,0" Height="23" VerticalAlignment="Top" Click="cancelBtn_Click" Cursor="Hand"/>
                     <GroupBox x:Name="checkGroup" Header="Check List" Height="61" Margin="10,94,10,0" VerticalAlignment="Top">
                         <CheckBox x:Name="opt1" Content="Option1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" ClickMode="Press" Checked="opt1_Checked" IsChecked="False" />
