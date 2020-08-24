@@ -23,16 +23,34 @@ namespace TestWPF
         public HelloWPF()
         {
             InitializeComponent();
+            LogMonitor = "Hello WPF";
+        }
+
+        public string LogMonitor { get; set; }
+
+        private void OnOptionChecked()
+        {
+            if (opt1.IsChecked == true)
+            {
+                logMonitor.Text += " + Option Checked";
+            }
         }
 
         private void okBtn_Click(object sender, RoutedEventArgs e)
         {
             logMonitor.Text = "Ok Button Clicked";
+            OnOptionChecked();
         }
 
         private void cancelBtn_Click(object sender, RoutedEventArgs e)
         {
             logMonitor.Text = "Cancel Button Clicked";
+            OnOptionChecked();
+        }
+
+        private void opt1_Checked(object sender, RoutedEventArgs e)
+        {
+            logMonitor.Text = "Option Checked";
         }
     }
 }
